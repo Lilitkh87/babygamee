@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Գրանցման Էջ</title>
+  <link rel="stylesheet" href="stile..css">
+</head>
+<body>
+  <div class="registration-form">
+    <h1>Գրանցման Էջ</h1>
+    <form onsubmit="redirectToIndex(event)" enctype="multipart/form-data">
+      <label for="first-name">Անուն:</label>
+      <input type="text" id="first-name" name="first-name" placeholder="Մուտքագրեք Ձեր անունը" required>
+
+      <label for="last-name">Ազգանուն:</label>
+      <input type="text" id="last-name" name="last-name" placeholder="Մուտքագրեք Ձեր ազգանունը" required>
+
+      <label for="profile-pic">Նկար:</label>
+      <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+
+      <label for="language">Լեզու:</label>
+      <select id="language" name="language" required>
+        <option value="armenian">Հայերեն</option>
+        <option value="english">English</option>
+        <option value="russian">Русский</option>
+      </select>
+
+      <button type="submit">Գրանցվել</button>
+    </form>
+  </div>
+
+  <script>
+    function redirectToIndex(event) {
+      event.preventDefault(); 
+      window.location.href = "menu.html"; 
+    }
+  </script>
+</body>
+</html>

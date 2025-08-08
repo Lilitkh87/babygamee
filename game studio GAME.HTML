@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մենյու</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .menu-container {
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu li {
+            width: 160px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu li:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .menu li img {
+            width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: cover;
+        }
+
+        .menu li span {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <ul class="menu">
+            <li>
+                <a href="Englishletargame.html">
+                    <img src="english letars.png" alt="English Game">
+                    <span>English Letters Game</span>
+                </a>
+            </li>
+            <li>
+                <a href="game3B.html">
+                    <img src="rushen letars.png" alt="Russian Game">
+                    <span>Russian Letters Game</span>
+                </a>
+            </li>
+            <li>
+                <a href="numbergameE.html">
+                    <img src="numbers.jpg" alt="Numbers">
+                    <span>Let's Learn Numbers</span>
+                </a>
+            </li>
+            <li>
+                <a href="nomber game r.html">
+                    <img src="numbers.jpg" alt="Russian Numbers">
+                    <span> Numbers in Russian</span>
+                </a>
+            </li>
+            <li>
+                <a href="colorgameE.html">
+                    <img src="Final_Palette_01.png" alt="Colors">
+                    <span>Let's Learn Colors</span>
+                </a>
+            </li>
+            <li>
+                <a href="color game r.html">
+                    <img src="Final_Palette_01.png" alt="Russian Colors">
+                    <span>Let's Learn Colors in Russian</span>
+                </a>
+            </li>
+            <li>
+                <a href="stor 2.html">
+                    <img src="sror.jpg" alt="Russian Colors">
+                    <span>Let's Learn thinges that we can bye</span>
+                </a>
+            </li>
+            <li>
+                <a href="store.html">
+                    <img src="sror.jpg" alt="Russian Colors">
+                    <span>Let's lern thinges that we can bye in rushen</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

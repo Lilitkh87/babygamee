@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Info Page</title>
+    <style>
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: antiquewhite;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgb(12, 138, 248);
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ffffff;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-container button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            background-color: rgb(12, 138, 248);
+            color: white;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .search-container button:hover {
+            background-color: white;
+            color: rgb(12, 138, 248);
+            border: 1px solid rgb(12, 138, 248);
+        }
+
+        .image-section {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            text-align: center;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            height: 250px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .image-container .info {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: black;
+        }
+
+        /* Մեծացրած նկարի ստիլ */
+        .fullscreen-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .fullscreen-container img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .text-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        Search here...
+    </header>
+    <p> page helps you explore interesting facts and answers about babies.
+        Browse through the pictures and discover when babies learn different gestures,
+        how they express themselves, and more!></p>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search here...">
+        <button id="search-btn">Search</button>
+    </div>
+
+    <div class="image-section">
+        <div class="image-container">
+            <img src="WhatsApp Image 2025-02-15 at 10.51.06_136795e0.jpg" alt="Image 1" onclick="openFullscreen(this)">
+            <p class="info">This image represents the site of a baby</p>
+        </div>
+
+        <div class="image-container">
+            <img src="babys thith.jpg" alt="Image 2" onclick="openFullscreen(this)">
+            <p class="info">How long does it take for a baby to have their teeth?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="babys nap time.jpg" alt="Image 3" onclick="openFullscreen(this)">
+            <p class="info">When do babies sleep?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="babys iting.png" alt="Image 4" onclick="openFullscreen(this)">
+            <p class="info">When can and what can babies eat?</p>
+        </div>
+        <div class="image-container">
+            <img src="IMG_9373 (1).jpeg" alt="Image 5" onclick="openFullscreen(this)">
+            <p class="info">From what years old can babies do a thumbs up?</p>
+        </div>
+        <div class="image-container">
+            <img src="caucasian-baby-pointing-with-index-finger-away-sees-something-interesting-wearing-t-shirt_176532-12166.avif"
+                alt="Image 6" onclick="openFullscreen(this)">
+            <p class="info">From what years old can babies point their index finger?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="baby high five3.jpg" alt="Image 7" onclick="openFullscreen(this)">
+            <p class="info">Babies high five?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="blow a kiss.jpg" alt="Image 8" onclick="openFullscreen(this)">
+            <p class="info">Blowing a kiss?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="ARMS UP 5.jpg" alt="Image 8" onclick="openFullscreen(this)">
+            <p class="info">THIS PICTURE REPRISENTS BABYS HANDS UP?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="hand up.jpg" alt="Image 8" onclick="openFullscreen(this)">
+            <p class="info">THIS PICTURE REPRISENTS A BABY TRYING TO REACH SOMETHING ?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="GIVING 2.jpg" onclick="openFullscreen(this)">
+            <p class="info">THIS PICTURE REPRISENTS A BABY GIVING SOMETHING ?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="SHHH 2.jpg" onclick="openFullscreen(this)">
+            <p class="info">THIS PICTURE REPRISENTS A BABY SHHH GESTURE ?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="LEARN.jpg" onclick="openFullscreen(this)">
+            <p class="info">THIS PICTURE REPRISENTS SOME THINGS THAT WE SHULD TEACH OUR KIDS ?</p>
+        </div>
+
+
+        <div class="text">
+            <h3>Nutrition</h3>
+            <p>Nutrition:
+                Breastfeeding and formula feeding are primary sources of nutrition for infants. The American Academy of
+                Pediatrics (AAP) offers guidance on when and how to introduce solid foods.</p>
+        </div>
+
+        <div class="text">
+            <h3>Sleep</h3>
+            <p>Sleep:
+                Babies have different sleep patterns than adults, and establishing routines can help both parents and babies get adequate rest.
+        </div>
+
+        <div class="text">
+            <h3>Sleep</h3>
+            <p>Sleep:
+                Babies have different sleep patterns than adults, and establishing routines can help both parents and babies get adequate rest.
+
+    </div>
+    <!-- Մեծացված նկարի հատված -->
+    <div class="fullscreen-container" id="fullscreen-container">
+        <span class="close-btn" onclick="closeFullscreen()">&times;</span>
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+    </div>
+
+
+
+    <script>
+        function openFullscreen(img) {
+            document.getElementById("fullscreen-image").src = img.src;
+            document.getElementById("fullscreen-container").style.display = "flex";
+        }
+
+        function closeFullscreen() {
+            document.getElementById("fullscreen-container").style.display = "none";
+        }
+
+        // Որոնման ֆունկցիա
+        document.getElementById("search-btn").addEventListener("click", function () {
+            let searchText = document.getElementById("search-input").value.toLowerCase();
+            let images = document.querySelectorAll(".image-container");
+
+            images.forEach(image => {
+                let infoText = image.querySelector(".info").textContent.toLowerCase();
+                if (infoText.includes(searchText)) {
+                    image.style.display = "block";
+                } else {
+                    image.style.display = "none";
+                }
+            });
+        });
+
+        // Որոնումը կաշխատի նաև input-ի վրա (Enter սեղմելու դեպքում)
+        document.getElementById("search-input").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.getElementById("search-btn").click();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

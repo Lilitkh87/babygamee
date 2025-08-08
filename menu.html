@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Գլխավոր Էջ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+        .menu-item {
+            text-align: center;
+        }
+        .menu a {
+            text-decoration: none;
+            background: #333;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .menu a:hover {
+            background: #555;
+        }
+        .menu img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .menu h2 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+    <script>
+        function confirmNavigation(url) {
+            let confirmation = confirm("Հաստատում եք, որ ցանկանում եք անցնել նոր էջ:");
+            if (confirmation) {
+                window.location.href = url;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu">
+            <div class="menu-item">
+                <a onclick="confirmNavigation('game studio GAME.HTML')">
+                    <img src="Space Microchip Backgrounds 1 Graphic by ArtistMef · Creative Fabrica.jpg" alt="Պատկեր 1">
+                </a>
+                <h2>Games for ages 1-6</h2>
+            </div>
+            <div class="menu-item">
+                <a onclick="confirmNavigation('GLXAVOR.HTML')">
+                    <img src="2.png" alt="Պատկեր 2">
+                </a>
+                <h2>Little INFORMATION <br>ABOUT BABIES AS PHOTO</h2>
+            </div>
+            <div class="menu-item">
+                <a onclick="confirmNavigation('Q&A.html')">
+                    <img src="Q&A.jpg" alt="Պատկեր 2">
+                </a>
+                <h2>Comen Questions <br>Whit it's Answer</h2>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainbow Color Click Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    .game-container {
+      margin-top: 50px;
+    }
+
+    #color-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 20px;
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    #color-name {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+
+    #repeat-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #080a01;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    #repeat-button:hover {
+      opacity: 0.8;
+    }
+
+    #game-over {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #game-over button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #ffffff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #game-over button:hover {
+      opacity: 0.8;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Найди цвет</h1>
+    <p id="spoken-color"></p>
+    <div id="color-buttons"></div>
+    <div id="color-name"></div>
+    <button id="repeat-button" onclick="repeatColor()">Повторить цвет</button>
+    <p id="message"></p>
+  </div>
+
+  <div id="game-over">
+    <p>Игра окончена</p>
+    <button onclick="restartGame()">Начать заново</button>
+  </div>
+
+  <script>
+    // Rainbow colors array in Russian
+    const rainbowColors = ['Красный', 'Оранжевый', 'Желтый', 'Зеленый', 'Синий', 'Индиго', 'Фиолетовый'];
+    const colorHex = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE']; // Hex colors
+
+    let correctColor = '';
+    let gameOver = false;
+
+    // Speak the correct color name using Web Speech API
+    function speakColor(color) {
+      const msg = new SpeechSynthesisUtterance(color);
+      msg.lang = 'ru-RU'; // Set language to Russian
+      speechSynthesis.speak(msg);
+    }
+
+    // Set up the game
+    function setupGame() {
+      if (gameOver) return; // Prevent setting up a new game after game over
+
+      correctColor = rainbowColors[Math.floor(Math.random() * rainbowColors.length)]; // Pick a random color
+      const spokenColorElement = document.getElementById("spoken-color");
+      spokenColorElement.textContent = `Нажмите на цвет: ${correctColor}`;
+
+      // Set up color buttons
+      const colorButtons = document.getElementById("color-buttons");
+      colorButtons.innerHTML = ''; // Clear any existing buttons
+
+      // Create buttons for each color
+      rainbowColors.forEach((color, index) => {
+        const button = document.createElement('button');
+        button.textContent = color;
+        button.style.backgroundColor = colorHex[index]; // Apply the color to the button's background
+        button.onclick = () => {
+          if (color === correctColor) {
+            document.getElementById("message").textContent = "Правильно! Молодец!";
+          } else {
+            gameOverScreen();
+          }
+          setTimeout(() => setupGame(), 1000); // Restart the game after a short delay
+        };
+        colorButtons.appendChild(button);
+      });
+
+      // Display color name in uppercase and set it as a clickable element
+      const colorNameElement = document.getElementById("color-name");
+      colorNameElement.textContent = correctColor.toUpperCase();
+
+      // Speak the correct color
+      speakColor(correctColor);
+    }
+
+    // Function to repeat the color name when the button is clicked
+    function repeatColor() {
+      speakColor(correctColor);
+    }
+
+    // Game Over function
+    function gameOverScreen() {
+      gameOver = true;
+      document.getElementById("game-over").style.display = "flex";
+    }
+
+    // Restart the game
+    function restartGame() {
+      gameOver = false;
+      document.getElementById("game-over").style.display = "none";
+      setupGame();
+    }
+
+    // Initialize game when the page loads
+    window.onload = setupGame;
+  </script>
+</body>
+</html>
